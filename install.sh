@@ -11,7 +11,7 @@ NC='\033[0m' # No Color
 sudo apt-get -y install libopus0 libasound2 libudev0 libavahi-client3 libcurl3 libevdev2
 
 HDMIaudio=$(sudo cat /boot/config.txt|grep -i hdmi_drive|wc -l)
-	if [ "$HDMIaudio" -gt "2" ]; then
+	if [ "$HDMIaudio" -gt "1" ]; then
 		printf "${YELLOW}HDMI Sound already installed${NC}\n"
 	else
 		printf "${GREEN}Adding HDMI sound to configs{NC}\n"
