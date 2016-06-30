@@ -23,21 +23,21 @@ VERID=$(cat /etc/os-release|grep -i VERSION_ID|cut -c 13-|rev|cut -c 2-|rev)
 VERIDtotal=$(sudo cat /etc/apt/sources.list|grep -i moonlight|wc -l)
 	if [ "$VERID" -eq "8" ]; then
 		printf "${NC} You are running jessie ${NC}\n"
-				if [ "$VERID" -ge "1" ]; then
-					printf "${YELLOW} moonlight already in source list ${NC}\n"
-				else
+				if [ "$VERID" -eq "0" ]; then
 					printf "${GREEN} Adding moonlight to source list ${NC}\n"
 					echo "deb http://archive.itimmer.nl/raspbian/moonlight jessie main" | sudo sh -c 'cat >> /etc/apt/sources.list'
+				else
+					printf "${YELLOW} moonlight already in source list ${NC}\n"
 				fi
 	fi
 
 		if [ "$VERID" -eq "7" ]; then
 		printf "${NC} You are running wheezy ${NC}\n"
-				if [ "$VERID" -ge "1" ]; then
-					printf "${YELLOW} moonlight already in source list ${NC}\n"
-				else
+				if [ "$VERID" -eq "0" ]; then
 					printf "${GREEN} Adding moonlight to source list ${NC}\n"
 					echo "deb http://archive.itimmer.nl/raspbian/moonlight wheezy main" | sudo sh -c 'cat >> /etc/apt/sources.list'
+				else
+					printf "${YELLOW} moonlight already in source list ${NC}\n"
 				fi
 	fi
 
