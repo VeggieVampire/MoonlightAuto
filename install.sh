@@ -44,5 +44,5 @@ VERIDtotal=$(sudo cat /etc/apt/sources.list|grep -i moonlight|wc -l)
 sudo apt-key update
 sudo apt-get -y update
 sudo apt-get --force-yes -y install moonlight-embedded
-printf "${GREEN}moonlight should be installed ${NC}\n"
+printf "${NC}moonlight should be installed ${NC}\n"
 printf "${GREEN}type:moonlight ${NC}\n"
