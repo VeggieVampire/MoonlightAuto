@@ -23,7 +23,7 @@ VERID=$(cat /etc/os-release|grep -i VERSION_ID|cut -c 13-|rev|cut -c 2-|rev)
 VERIDtotal=$(sudo cat /etc/apt/sources.list|grep -i moonlight|wc -l)
 	if [ "$VERID" -eq "8" ]; then
 		printf "${NC} You are running jessie ${NC}\n"
-				if [ "$VERID" -gt "0" ]; then
+				if [ "$VERID" -ge "1" ]; then
 					printf "${YELLOW} moonlight already in source list ${NC}\n"
 				else
 					printf "${GREEN} Adding moonlight to source list ${NC}\n"
@@ -33,7 +33,7 @@ VERIDtotal=$(sudo cat /etc/apt/sources.list|grep -i moonlight|wc -l)
 
 		if [ "$VERID" -eq "7" ]; then
 		printf "${NC} You are running wheezy ${NC}\n"
-				if [ "$VERID" -gt "0" ]; then
+				if [ "$VERID" -ge "1" ]; then
 					printf "${YELLOW} moonlight already in source list ${NC}\n"
 				else
 					printf "${GREEN} Adding moonlight to source list ${NC}\n"
