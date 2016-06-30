@@ -22,7 +22,7 @@ HDMIaudio=$(sudo cat /boot/config.txt|grep -i hdmi_drive|wc -l)
 VERID=$(cat /etc/os-release|grep -i VERSION_ID|cut -c 13-|rev|cut -c 2-|rev)
 VERIDtotal=$(sudo cat /etc/apt/sources.list|grep -i moonlight|wc -l)
 	if [ "$VERID" -eq "8" ]; then
-		printf "${YELLOW} You are running jessie ${NC}\n"
+		printf "${NC} You are running jessie ${NC}\n"
 				if [ "$VERID" -gt "0" ]; then
 					printf "${YELLOW} moonlight already in source list ${NC}\n"
 				else
@@ -32,7 +32,7 @@ VERIDtotal=$(sudo cat /etc/apt/sources.list|grep -i moonlight|wc -l)
 	fi
 
 		if [ "$VERID" -eq "7" ]; then
-		printf "${YELLOW} You are running wheezy ${NC}\n"
+		printf "${NC} You are running wheezy ${NC}\n"
 				if [ "$VERID" -gt "0" ]; then
 					printf "${YELLOW} moonlight already in source list ${NC}\n"
 				else
