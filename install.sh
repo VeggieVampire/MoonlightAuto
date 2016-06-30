@@ -18,8 +18,29 @@ HDMIaudio=$(sudo cat /boot/config.txt|grep -i hdmi_drive|wc -l)
 		echo "hdmi_drive=2" | sudo sh -c 'cat >> /boot/config.txt'
 	fi
 
-printf "${YELLOW}Adding moonlight into the sources list${NC}\n"
-echo "deb http://archive.itimmer.nl/raspbian/moonlight jessie main" | sudo sh -c 'cat >> /etc/apt/sources.list'
+
+VERID=$(cat /etc/os-release|grep -i VERSION_ID|cut -c 13-|rev|cut -c 2-|rev)
+VERIDtotal=$(sudo cat /etc/apt/sources.list|grep -i moonlight|wc -l)
+	if [ "$VERID" -eq "8" ]; then
+		printf "${YELLOW} You are running jessie ${NC}\n"
+				if [ "$VERID" -gt "0" ]; then
+					printf "${YELLOW} moonlight already in source list ${NC}\n"
+				else
+					printf "${GREEN} Adding moonlight to source list ${NC}\n"
+					echo "deb http://archive.itimmer.nl/raspbian/moonlight jessie main" | sudo sh -c 'cat >> /etc/apt/sources.list'
+				fi
+	fi
+
+		if [ "$VERID" -eq "7" ]; then
+		printf "${YELLOW} You are running wheezy ${NC}\n"
+				if [ "$VERID" -gt "0" ]; then
+					printf "${YELLOW} moonlight already in source list ${NC}\n"
+				else
+					printf "${GREEN} Adding moonlight to source list ${NC}\n"
+					echo "deb http://archive.itimmer.nl/raspbian/moonlight wheezy main" | sudo sh -c 'cat >> /etc/apt/sources.list'
+				fi
+	fi
+
 sudo apt-key update
 sudo apt-get -y update
 sudo apt-get --force-yes -y install moonlight-embedded
