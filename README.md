@@ -1,6 +1,6 @@
 # MoonlightAuto
 Auto install Moonlight on raspberry pi
-
+Moonlight (formerly known as Limelight) is an open source implementation of NVIDIA's GameStream protocol.
 
 #Install <br>
 git clone https://github.com/VeggieVampire/MoonlightAuto <br>
